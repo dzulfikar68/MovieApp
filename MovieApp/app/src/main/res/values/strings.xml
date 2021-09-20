@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Movie Catalogue (Final Project)</string>
+    <string name="movie">Film</string>
+    <string name="tv">TV</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title">Judul</string>
+    <string name="photo">Foto</string>
+    <string name="description">Deskripsi</string>
+    <string name="genre">Peringkat</string>
+    <string name="release">Rilis</string>
+</resources>

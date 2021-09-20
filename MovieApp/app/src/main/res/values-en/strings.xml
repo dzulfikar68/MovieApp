@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movie Catalogue (Local Storage)</string>
+    <string name="movie">Movie</string>
+    <string name="tv">TV</string>
+
+    <!-- TODO: Remove or achange this placeholder text -->
+    <string name="title">Title</string>
+    <string name="photo">Photo</string>
+    <string name="description">Description</string>
+    <string name="genre">Rate</string>
+    <string name="release">Release</string>
+</resources>
