@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Movie Favorites (Final Project)</string>
+
+    <string name="movie">Movie</string>
+    <string name="tv">TV</string>
+
+    <!-- TODO: Remove or achange this placeholder text -->
+    <string name="title">Title</string>
+    <string name="photo">Photo</string>
+    <string name="description">Description</string>
+    <string name="genre">Rate</string>
+    <string name="release">Release</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="no_item">No Item</string>
+    <string name="release_today_msg">%s Release today, don\'t forget to watch it!</string>
+    <string name="message_daily">Let\'s watch some good movies</string>
+    <string name="appwidget_text">Favorite Movie</string>
+    <string name="lang_title">Language</string>
+    <string name="summary_lang">Select language</string>
+    <string name="lang">Language</string>
+    <string name="pref_title_notifications">Notifications</string>
+    <string name="summary_daily_reminder">You will reveiced daily reminder every 8 AM</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="summary_release_reminder">You will receive daily movie release info every 7 AM</string>
+    <string name="release_reminder">Release Reminder</string>
+
+    <string name="key_today_reminder">key_today_reminder</string>
+    <string name="key_release_reminder">key_release_reminder</string>
+    <string name="key_lang">key_lang</string>
+    <string name="search">search</string>
+</resources>
