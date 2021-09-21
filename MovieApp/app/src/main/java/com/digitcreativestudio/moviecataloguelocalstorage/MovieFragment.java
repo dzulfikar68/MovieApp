@@ -29,7 +29,7 @@ import java.util.ArrayList;
  */
 public class MovieFragment extends Fragment {
 
-    private static String URL_MOVIE = "https://api.themoviedb.org/3/discover/movie?api_key=3f7d1c2a7daf6b9f4668c8cf54074ed1&language=en-US";
+    private static String URL_MOVIE = "https://api.themoviedb.org/3/movie/upcoming?api_key=3f7d1c2a7daf6b9f4668c8cf54074ed1&language=en-US";
     private RecyclerView rvMovies;
     private MovieAdapter adapter;
     private ArrayList<Movie> list = new ArrayList<>();

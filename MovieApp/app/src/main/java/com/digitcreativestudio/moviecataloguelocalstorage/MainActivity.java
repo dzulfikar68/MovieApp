@@ -30,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_tv:
                     setFragment(new TvFragment());
                     return true;
+                case R.id.navigation_movie_now:
+                    setFragment(new MovieNowFragment());
+                    return true;
+                case R.id.navigation_tv_top:
+                    setFragment(new TvTopFragment());
+                    return true;
             }
             return false;
         }

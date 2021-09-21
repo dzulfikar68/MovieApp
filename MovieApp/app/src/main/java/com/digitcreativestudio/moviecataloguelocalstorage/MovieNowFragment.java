@@ -1,6 +1,5 @@
 package com.digitcreativestudio.moviecataloguelocalstorage;
 
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,28 +12,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+public class MovieNowFragment extends Fragment {
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class TvFragment extends Fragment {
-
-    private static String URL_TV = "https://api.themoviedb.org/3/tv/popular?api_key=3f7d1c2a7daf6b9f4668c8cf54074ed1&language=en-US";
-    private RecyclerView rvTvs;
+    private static String URL_MOVIE = "https://api.themoviedb.org/3/movie/now_playing?api_key=3f7d1c2a7daf6b9f4668c8cf54074ed1&language=en-US";
+    private RecyclerView rvMovies;
     private MovieAdapter adapter;
     private ArrayList<Movie> list = new ArrayList<>();
 
-    public TvFragment() {
+    public MovieNowFragment() {
         // Required empty public constructor
     }
 
@@ -42,7 +39,7 @@ public class TvFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tv, container, false);
+        return inflater.inflate(R.layout.fragment_movie, container, false);
     }
 
     @Override
@@ -52,16 +49,16 @@ public class TvFragment extends Fragment {
         adapter = new MovieAdapter(getActivity());
         adapter.setListMovie(list);
 
-        rvTvs = view.findViewById(R.id.rv_tvs);
-        rvTvs.setHasFixedSize(true);
-//        list.addAll(TvsData.getListdata());
-        rvTvs.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        rvTvs.setAdapter(adapter);
+        rvMovies = view.findViewById(R.id.rv_movies);
+        rvMovies.setHasFixedSize(true);
+//        list.addAll(MoviesData.getListdata());
+        rvMovies.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        rvMovies.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
         requestList();
 
-        ItemClickSupport.addTo(rvTvs).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+        ItemClickSupport.addTo(rvMovies).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View view) {
                 Toast.makeText(getActivity(), "Kamu memilih "+list.get(position).getTitle(), Toast.LENGTH_LONG).show();
@@ -79,7 +76,7 @@ public class TvFragment extends Fragment {
         progress.setCancelable(false); // disable dismiss by tapping outside of the dialog
         progress.show();
 
-        StringRequest srList = new StringRequest(Request.Method.GET, URL_TV,
+        StringRequest srList = new StringRequest(Request.Method.GET, URL_MOVIE,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -90,12 +87,12 @@ public class TvFragment extends Fragment {
                                 JSONObject objMovie = jsonArray.getJSONObject(i);
                                 Movie obj = new Movie();
                                 obj.setId(objMovie.getInt("id"));
-                                obj.setTitle(objMovie.getString("name"));
+                                obj.setTitle(objMovie.getString("title"));
                                 obj.setPoster("https://image.tmdb.org/t/p/"+"w500"+objMovie.getString("poster_path"));
                                 obj.setDescription(objMovie.getString("overview"));
                                 obj.setGenre(objMovie.getString("vote_average"));
-                                obj.setRelease(objMovie.getString("first_air_date"));
-                                obj.setType("tv");
+                                obj.setRelease(objMovie.getString("release_date"));
+                                obj.setType("movie");
                                 list.add(obj);
                             }
                         } catch (JSONException e) {
@@ -115,4 +112,3 @@ public class TvFragment extends Fragment {
     }
 
 }
-
